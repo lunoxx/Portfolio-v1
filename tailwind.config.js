@@ -1,12 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/*.{html,js,css}",
-    "./views/*.ejs"
+    "./views/*.{html,js,ejs}",
   ],
   
   safelist: [
-    'bg-yellow-400 text-yellow-900',
+    'bg-yellow-400', 'text-yellow-900',
     'bg-green-700', 'text-green-200',
     'bg-green-500', 'text-green-900',
     'bg-sky-400', 'text-sky-900'
@@ -33,5 +32,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('tailwind-scrollbar-hide')
   ],
 }

@@ -9,7 +9,6 @@ const author = {
 
 exports.author = author
 
-
 const SEO = {
     hero_text: process.env.HERO_TEXT,
     nav_title: process.env.NAV_TITLE

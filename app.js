@@ -8,7 +8,11 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.set("views", __dirname + '/views');
+// app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
+
+
 
 // Contentful
 const contentful = require("contentful");
@@ -21,13 +25,14 @@ var client = contentful.createClient({
 
 // Constants
 const constants = require(__dirname + "/constants");
+constants.YEAR = new Date().getFullYear();
 
 app.get("/", function(req, res) {
 
     let topics = [];
 
     client.getEntries({
-        limit: 3,
+        limit: 5,
         content_type: 'blogPost',
         order: '-sys.createdAt'
     })
@@ -37,16 +42,82 @@ app.get("/", function(req, res) {
             
             let item = {
                 title: entry.fields.title,
+                slug: entry.fields.slug,
                 description: HTMLContentRender.documentToHtmlString(entry.fields.content),
                 content: HTMLContentRender.documentToHtmlString(entry.fields.content),
                 image: entry.fields.thumbnailImage.fields.file,
                 tags: entry.metadata.tags
             }
             topics.push(item);
+            // res.send(item.slug);
         });
         res.render("index.ejs", {constants, topics, tagsConfig});
     });
+});
 
+// View projects routes
+app.get("/projects/:slug?", function(req, res) {
+
+    const slug = req.params.slug;
+
+    // show just one project
+    if(slug) {
+
+        client.getEntries({
+            limit: 1,
+            content_type: 'blogPost',
+            "fields.slug": slug,
+        })
+        .then(function (entries) {
+
+            if(entries.total) {
+
+                entries.items.forEach(function (entry) {
+                    let item = {
+                        title: entry.fields.title,
+                        slug: entry.fields.slug,
+                        description: HTMLContentRender.documentToHtmlString(entry.fields.content),
+                        content: HTMLContentRender.documentToHtmlString(entry.fields.content),
+                        image: entry.fields.thumbnailImage.fields.file,
+                        tags: entry.metadata.tags
+                    }
+                    
+                    res.render("readProject.ejs", {constants, item, tagsConfig});
+                });
+            }
+            else res.send("404 not found");
+        });
+
+    }
+
+    // show all projects
+    else {
+        let projects = [];
+
+        client.getEntries({
+            limit: 5,
+            content_type: 'blogPost',
+            order: '-sys.createdAt'
+        })
+        .then(function (entries) {
+    
+            entries.items.forEach(function (entry) {
+                
+                let item = {
+                    title: entry.fields.title,
+                    slug: entry.fields.slug,
+                    description: HTMLContentRender.documentToHtmlString(entry.fields.content),
+                    content: HTMLContentRender.documentToHtmlString(entry.fields.content),
+                    image: entry.fields.thumbnailImage.fields.file,
+                    tags: entry.metadata.tags
+                }
+                projects.push(item);
+                // res.send(item.slug);
+            });
+            res.render("allProjects.ejs", {constants, projects, tagsConfig});
+        });
+        
+    }
 });
 
 const port = process.env.PORT;
