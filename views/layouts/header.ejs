@@ -11,7 +11,7 @@
     
     <body class="bg-slate-900 text-gray-100">
         <div class="mx-auto max-w-screen-lg px-3 py-6">
-          <div class="flex flex-col gap-y-3 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex flex-row justify-between items-center gap-y-3">
             <a href="/">
               <div class="flex items-center bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-xl font-bold text-transparent">
                 <svg class="mr-1 h-10 w-10 stroke-cyan-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -25,8 +25,16 @@
             </a>
 
             <!-- navbar buttons -->
+
             <nav>
-              <ul class="flex gap-x-3 font-medium text-gray-200">
+              <div class="sm:hidden z-10">
+                <button onclick="toggleNavBar()">
+                  <i class="fa-solid fa-bars text-sky-400 mt-1"></i>
+                </button>
+              </div>
+
+              <!-- desktop nav -->
+              <ul class="hidden sm:flex gap-x-3 font-medium text-gray-200 ">
                 <li class="hover:text-white">
                   <a href="/projects">Projects</a>
                 </li>
@@ -34,6 +42,22 @@
                   <a href="<%=constants.author.github %>" target="_blank">GitHub</a>
                 </li>
               </ul>
+
             </nav>
+            
+            <!-- mobile nav -->
+            <div class="sm:hidden absolute top-16 right-0 z-10 w-2/3 h-full backdrop-blur-3xl bg-sky-900/5" id = "nav_panel" style="display: none;">
+                <ul class="p-2">
+                    <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm">
+                        <button class="w-full text-left" onclick="location.href='/projects'"><i class="bg-slate-100/10 w-12 fa-brands fa-github opacity-80 p-4"></i><span class="px-3">Projects</span</button>
+                    </li>
+                    <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm mt-1">
+                        <button class="w-full text-left" onclick="window.open('<%=constants.author.github%>', '_blank')"><i class="bg-slate-100/10 w-12 fa-solid fa-list-check opacity-80 p-4"></i><span class="px-3">Github</span></button>
+                    </li>
+                    <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm mt-1">
+                        <button class="w-full text-left" onclick="location.href='/contact'"><i class="bg-slate-100/10 w-12 fa-regular fa-comments opacity-80 p-4"></i><span class="px-3">Contact</span</a>
+                    </li>
+                </ul>
+            </div>
           </div>
         </div>

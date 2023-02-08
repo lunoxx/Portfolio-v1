@@ -95,7 +95,6 @@ app.get("/projects/:slug?", function(req, res) {
         let projects = [];
 
         client.getEntries({
-            limit: 5,
             content_type: 'blogPost',
             order: '-sys.createdAt'
         })
@@ -118,6 +117,11 @@ app.get("/projects/:slug?", function(req, res) {
         });
         
     }
+});
+
+// Contact page
+app.get("/contact", function(req, res) {
+    res.send("contact page");
 });
 
 const port = process.env.PORT;

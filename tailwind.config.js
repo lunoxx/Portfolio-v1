@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./views/*.{html,js,ejs}",
+    "./views/layouts/*.{html,js,ejs}",
   ],
   
   safelist: [

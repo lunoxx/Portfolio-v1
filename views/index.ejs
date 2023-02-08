@@ -1,12 +1,22 @@
 
 <%- include('layouts/header'); -%>
 
+
         <!-- Hero section -->
         <div class="mx-auto max-w-screen-lg px-3 py-6">
-            <div class="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
-                <div>
-                    <h1 class="text-3xl font-bold">Hi there, I'm <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent"><%=constants.author.full_name %></span>
-                        <span class="animate-waving-hand inline-block">👋</span>
+            <div class="flex flex-col items-center md:flex-row-reverse md:justify-between md:gap-x-24">
+                
+                <div class="md:flex md:shrink-0">
+                    <img class="h-80 w-64" src="images/avatar.png" alt="Avatar image">
+                </div>
+
+                <div class="flex flex-col items-center text-center md:block md:text-left">
+                    <h1 class="text-3xl font-bold">
+                        <span>Hi there,</span> 
+                        <span class="inline-block">
+                            I'm <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent"><%=constants.author.full_name %></span>
+                            <span class="animate-waving-hand inline-block">👋</span>
+                        </span>
                     </h1>
 
                     <p class="mt-6 text-xl leading-9"><%=constants.SEO.hero_text%></p>
@@ -24,9 +34,6 @@
                         </a>
                     </div>
                 </div>
-                <div class="absolute z-[-1] opacity-10 md:opacity-100 md:z-0 md:relative md:flex md:shrink-0">
-                    <img class="h-80 w-64" src="images/avatar.png" alt="Avatar image">
-                </div>
             </div>
         </div>
 
@@ -34,13 +41,13 @@
         <div class="mx-auto max-w-screen-lg px-3 py-6">
           
           <!-- section title -->
-          <div class="flex items-baseline justify-between">
+          <div class="flex items-center justify-between flex-col sm:flex-row mb-6">
 
-            <div class="mb-6 text-2xl font-bold">Recent <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Projects</span>
+            <div class="text-2xl font-bold">Recent <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Projects</span>
             </div>
             
             <div class="text-sm font-bold">
-              <a href="/projects">View all Projects →</a>
+              <a href="/projects">View all Projects  →</a>
             </div>
           </div>
 
@@ -54,13 +61,13 @@
                             <img class="h-36 w-36 rounded-l-xl transform transition duration-200 hover:scale-105" src="<%= entry.image.url %>" alt="<%=entry.title %> image">
                         </a>
                     </div>
-                    <div>
+                    <div class="w-full">
                         <div class="flex flex-col items-center gap-y-2 md:flex-row">
                             <a class="hover:text-cyan-400" href="/projects/<%=entry.slug %>">
                                 <!-- PROJECT TITLE -->
-                                <div class="text-xl font-semibold"><%- entry.title %></div>
+                                <div class="text-xl font-semibold md:mr-4"><%- entry.title %></div>
                             </a>
-                            <div class="ml-3 flex gap-2">
+                            <div class="flex flex-wrap justify-center gap-2">
 
                                 <% if(entry.tags.length) { %>
                                     <% for(var i = 0, j = entry.tags.length; i < j; i++) { %>
@@ -72,7 +79,7 @@
                                 <% } %>
                             </div>
                         </div>
-                        <div class="mt-3 text-gray-300">
+                        <div class="mt-3 text-gray-300 text-center md:text-left overflow-auto scrollbar-hide">
                           <%- entry.description %>
                         </div>
                     </div>
