@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* mobile navigation panel */
+.fixed-position {
+    position:fixed;
+    max-width: 100%;;
+}
+
+#nav_panel {
+    display: none;
+}
+#nav_panel.active {
+    
+    animation: scale-display .3s;
+    display: block;
+}
+#nav_panel.out {
+    
+    animation: scale-display--reversed .3s;
+    animation-fill-mode:forwards;
+    display: block;
+}
+
+@keyframes scale-display { /* show menu animation */
+    0% {
+        opacity: 0;
+        transform:translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform:translateX(0%);
+    }
+}
+  
+@keyframes scale-display--reversed { /* hide menu animation */
+    0% {
+        display: block;
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    99% {
+        display: block;
+        opacity: 0;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+    100% {
+        display: none;
+        opacity: 0;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+}

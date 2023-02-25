@@ -28,8 +28,8 @@
 
             <nav>
               <div class="sm:hidden z-10">
-                <button onclick="toggleNavBar()">
-                  <i class="fa-solid fa-bars text-sky-400 mt-1"></i>
+                <button onclick="toggleMenu()">
+                  <i class="fa-solid fa-bars text-sky-400 mt-1" id = "toggleButton"></i>
                 </button>
               </div>
 
@@ -46,7 +46,7 @@
             </nav>
             
             <!-- mobile nav -->
-            <div class="sm:hidden absolute top-16 right-0 z-10 w-2/3 h-full backdrop-blur-3xl bg-sky-900/5" id = "nav_panel" style="display: none;">
+            <div class="sm:hidden absolute top-16 right-0 z-10 w-2/3 h-full backdrop-blur-3xl bg-sky-900/5" id = "nav_panel">
                 <ul class="p-2">
                     <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm">
                         <button class="w-full text-left" onclick="location.href='/projects'"><i class="bg-slate-100/10 w-12 fa-brands fa-github opacity-80 p-4"></i><span class="px-3">Projects</span</button>
