@@ -8,8 +8,11 @@ module.exports = {
   safelist: [
     'bg-yellow-400', 'text-yellow-900',
     'bg-green-700', 'text-green-200',
-    'bg-green-500', 'text-green-900',
-    'bg-sky-400', 'text-sky-900'
+    'bg-green-600', 'text-green-100',
+    'bg-sky-500', 'text-sky-50',
+    'bg-blue-600', 'text-blue-100',
+    'bg-orange-500', 'text-orange-100',
+    'bg-teal-700', 'text-teal-100',
   ],
 
   theme: {

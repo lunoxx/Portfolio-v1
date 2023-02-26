@@ -48,7 +48,7 @@ app.get("/", function(req, res) {
                 slug: entry.fields.slug,
                 description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                 content: HTMLContentRender.documentToHtmlString(entry.fields.content),
-                image: entry.fields.thumbnailImage.fields.file,
+                thumbnail_image: entry.fields.thumbnailImage.fields.file,
                 tags: entry.metadata.tags
             }
             topics.push(item);
@@ -81,7 +81,7 @@ app.get("/projects/:slug?", function(req, res) {
                         slug: entry.fields.slug,
                         description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                         content: HTMLContentRender.documentToHtmlString(entry.fields.content),
-                        image: entry.fields.thumbnailImage.fields.file,
+                        thumbnail_image: entry.fields.thumbnailImage.fields.file,
                         tags: entry.metadata.tags,
                         createdAt: dateTime(new Date(entry.sys.createdAt), '%d %M:s %Y, %H:%i')
                     }
@@ -111,7 +111,7 @@ app.get("/projects/:slug?", function(req, res) {
                     slug: entry.fields.slug,
                     description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                     content: HTMLContentRender.documentToHtmlString(entry.fields.content),
-                    image: entry.fields.thumbnailImage.fields.file,
+                    thumbnail_image: entry.fields.thumbnailImage.fields.file,
                     tags: entry.metadata.tags
                 }
                 projects.push(item);

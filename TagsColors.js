@@ -11,11 +11,23 @@ module.exports = Object.freeze({
         tagName: "ExpressJS"
     },
     nodeJs: {
-        colors: "bg-green-500 text-green-900",
+        colors: "bg-green-600 text-green-100",
         tagName: "NodeJS"
     },
     tailwindCss: {
-        colors: "bg-sky-400 text-sky-900",
+        colors: "bg-teal-700 text-teal-100",
         tagName: "TailwindCSS"
+    },
+    html: {
+        colors: "bg-orange-500 text-orange-100",
+        tagName: "HTML"
+    },
+    css: {
+        colors: "bg-blue-600 text-blue-100",
+        tagName: "CSS"
+    },
+    react: {
+        colors: "bg-sky-500 text-sky-50",
+        tagName: "React"
     }
 });
