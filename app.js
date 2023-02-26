@@ -13,6 +13,9 @@ app.set("views", __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 
 
+// dateTime:
+const dateTime = require("datetime-js");
+
 
 // Contentful
 const contentful = require("contentful");
@@ -43,7 +46,7 @@ app.get("/", function(req, res) {
             let item = {
                 title: entry.fields.title,
                 slug: entry.fields.slug,
-                description: HTMLContentRender.documentToHtmlString(entry.fields.content),
+                description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                 content: HTMLContentRender.documentToHtmlString(entry.fields.content),
                 image: entry.fields.thumbnailImage.fields.file,
                 tags: entry.metadata.tags
@@ -76,10 +79,11 @@ app.get("/projects/:slug?", function(req, res) {
                     let item = {
                         title: entry.fields.title,
                         slug: entry.fields.slug,
-                        description: HTMLContentRender.documentToHtmlString(entry.fields.content),
+                        description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                         content: HTMLContentRender.documentToHtmlString(entry.fields.content),
                         image: entry.fields.thumbnailImage.fields.file,
-                        tags: entry.metadata.tags
+                        tags: entry.metadata.tags,
+                        createdAt: dateTime(new Date(entry.sys.createdAt), '%d %M:s %Y, %H:%i')
                     }
                     
                     res.render("readProject.ejs", {constants, item, tagsConfig});
@@ -105,7 +109,7 @@ app.get("/projects/:slug?", function(req, res) {
                 let item = {
                     title: entry.fields.title,
                     slug: entry.fields.slug,
-                    description: HTMLContentRender.documentToHtmlString(entry.fields.content),
+                    description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                     content: HTMLContentRender.documentToHtmlString(entry.fields.content),
                     image: entry.fields.thumbnailImage.fields.file,
                     tags: entry.metadata.tags

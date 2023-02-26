@@ -1,6 +1,35 @@
 
 <%- include('layouts/header'); -%>
 
+    <div class="post-content mx-auto max-w-screen-lg px-3 py-6">
+        <h1 class="text-2xl font-bold mb-8">Project: <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent"><%=item.title %></span></h1>
+
+        <!-- description -->
+        <div class="w-full my-5 p-5 bg-gradient-to-r from-slate-800 to-slate-900 rounded-lg">
+            <%- item.description -%>
+        </div>
+
+        <!-- image -->
+        <div class="max-h-[35rem] w-full rounded-l-lg overflow-y-auto scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-900">
+            <img src="<%=item.image.url%>" alt="" class="w-full h-auto">
+        </div>
+
+        <!-- Created At widget -->
+        <div class="flex items-center justify-end text-gray-200">
+            <div class="h-full bg-slate-800 px-3 text-right">
+                <span class="capitalize">Created at:</span>
+                <p><%= item.createdAt %></p>
+            </div>
+            <div class="bg-slate-700 w-12 h-12 flex items-center justify-center"><i class="fa-regular fa-clock text-xl"></i></div>
+        </div>
+
+        <!-- Content -->
+        <div class="my-5 p-5 bg-gradient-to-r from-slate-800/40 to-slate-900 rounded-lg">
+
+            <%- item.content %>
+        </div>
+
+    </div>
 
 
 <%- include('layouts/footer'); -%>

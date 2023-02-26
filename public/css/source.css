@@ -55,3 +55,30 @@
         -webkit-transform: scale(0);
     }
 }
+
+/* Read project page - content */
+.post-content blockquote {
+    padding: .9375rem 1.25rem;
+    margin: .625rem 0;
+    border-left: .3125rem solid rgb(255 255 255 / 50%);
+    background: linear-gradient(40deg, #ffffff0c, transparent);
+}
+.post-content hr {
+    margin: 20px 0 13px 0;
+    opacity: 0.5;
+}
+.post-content a {
+    color: #22d3ee;
+}
+.post-content a:hover {
+    color: #22d3eeb2;
+}
+.post-content ol {
+    margin-left: 30px;
+    margin: 10px 0px 10px 40px;
+    list-style-type: decimal;
+}
+.post-content p:empty:before {
+    content: ' ';
+    white-space: pre;
+}
