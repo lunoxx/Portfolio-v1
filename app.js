@@ -128,7 +128,7 @@ app.get("/contact", function(req, res) {
     res.send("contact page");
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log(`Server is running on port ${port}.`);
 }); 
