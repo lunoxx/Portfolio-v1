@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const tagsConfig = require(__dirname + "/TagsColors.js");
-require('dotenv').config();
+require('dotenv').config() ;
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
