@@ -11,7 +11,7 @@ $(document).ready(function()
 
             if (!menu.is(e.target) && !toggleButton.is(e.target) && menu.has(e.target).length === 0)
             {
-                toggleMenu();
+                toggleMenu( );
             }
         }
     });
