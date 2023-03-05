@@ -17,6 +17,7 @@ $(document).ready(function()
     });
 
 });
+
 var toggleMenu = () => {
 
     var panel = $('#nav_panel');
