@@ -57,7 +57,8 @@ app.get("/", function(req, res) {
             topics.push(item);
             // res.send(item.slug);
         });
-        res.render("index.ejs", {constants, topics, tagsConfig});
+
+        res.render("index.ejs", {constants, topics, tagsConfig, title:'Mesesan Alin - Portfolio'});
     });
 });
 
@@ -89,7 +90,8 @@ app.get("/projects/:slug?", function(req, res) {
                         createdAt: dateTime(new Date(entry.sys.createdAt), '%d %M:s %Y, %H:%i')
                     }
                     
-                    res.render("readProject.ejs", {constants, item, tagsConfig});
+                    const title = "Mesesan Alin / Project: " + slug;
+                    res.render("readProject.ejs", {constants, item, tagsConfig, title});
                 });
             }
             else res.send("404 not found");
@@ -120,7 +122,8 @@ app.get("/projects/:slug?", function(req, res) {
                 projects.push(item);
                 // res.send(item.slug);
             });
-            res.render("allProjects.ejs", {constants, projects, tagsConfig});
+
+            res.render("allProjects.ejs", {constants, projects, tagsConfig, title:'Mesesan Alin - Projects'});
         });
         
     }

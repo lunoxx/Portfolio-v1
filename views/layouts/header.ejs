@@ -1,64 +1,55 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Mesesan Alin - Portfolio</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <link rel="shortcut icon" type="image/png" sizes="16x16" href="/images/favicon.png"/>
-    </head>
+
+
     
-    <body class="bg-slate-900 text-gray-100">
-        <div class="mx-auto max-w-screen-lg px-3 py-6">
-          <div class="flex flex-row justify-between items-center gap-y-3">
-            <a href="/">
-              <div class="flex items-center bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-xl font-bold text-transparent">
-                <svg class="mr-1 h-10 w-10 stroke-cyan-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M0 0h24v24H0z" stroke="none"></path>
-                  <rect x="3" y="12" width="6" height="8" rx="1"></rect>
-                  <rect x="9" y="8" width="6" height="12" rx="1"></rect>
-                  <rect x="15" y="4" width="6" height="16" rx="1"></rect>
-                  <path d="M4 20h14"></path>
-                </svg><%=constants.SEO.nav_title %>
-              </div>
-            </a>
-
-            <!-- navbar buttons -->
-
-            <nav>
-              <div class="sm:hidden z-10">
-                <button onclick="toggleMenu()">
-                  <i class="fa-solid fa-bars text-sky-400 mt-1" id = "toggleButton"></i>
-                </button>
-              </div>
-
-              <!-- desktop nav -->
-              <ul class="hidden sm:flex gap-x-3 font-medium text-gray-200 ">
-                <li class="hover:text-white">
-                  <a href="/projects">Projects</a>
-                </li>
-                <li class="hover:text-white">
-                  <a href="<%=constants.author.github %>" target="_blank">GitHub</a>
-                </li>
-              </ul>
-
-            </nav>
-            
-            <!-- mobile nav -->
-            <div class="sm:hidden absolute top-16 right-0 z-10 w-2/3 h-full backdrop-blur-3xl bg-sky-900/5" id = "nav_panel">
-                <ul class="p-2">
-                    <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm">
-                        <button class="w-full text-left" onclick="location.href='/projects'"><i class="bg-slate-100/10 w-12 fa-solid fa-list-check opacity-80 p-4"></i><span class="px-3">Projects</span</button>
-                    </li>
-                    <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm mt-1">
-                        <button class="w-full text-left" onclick="window.open('<%=constants.author.github%>', '_blank')"><i class="bg-slate-100/10 w-12 fa-brands fa-github opacity-80 p-4"></i><span class="px-3">Github</span></button>
-                    </li>
-                    <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm mt-1">
-                        <button class="w-full text-left" onclick="location.href='/contact'"><i class="bg-slate-100/10 w-12 fa-regular fa-comments opacity-80 p-4"></i><span class="px-3">Contact</span</a>
-                    </li>
-                </ul>
-            </div>
+<body class="bg-slate-900 text-gray-100">
+    <div class="mx-auto max-w-screen-lg px-3 py-6">
+      <div class="flex flex-row justify-between items-center gap-y-3">
+        <a href="/">
+          <div class="flex items-center bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-xl font-bold text-transparent">
+            <svg class="mr-1 h-10 w-10 stroke-cyan-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M0 0h24v24H0z" stroke="none"></path>
+              <rect x="3" y="12" width="6" height="8" rx="1"></rect>
+              <rect x="9" y="8" width="6" height="12" rx="1"></rect>
+              <rect x="15" y="4" width="6" height="16" rx="1"></rect>
+              <path d="M4 20h14"></path>
+            </svg><%=constants.SEO.nav_title %>
           </div>
+        </a>
+
+        <!-- navbar buttons -->
+
+        <nav>
+          <div class="sm:hidden z-10">
+            <button onclick="toggleMenu()">
+              <i class="fa-solid fa-bars text-sky-400 mt-1" id = "toggleButton"></i>
+            </button>
+          </div>
+
+          <!-- desktop nav -->
+          <ul class="hidden sm:flex gap-x-3 font-medium text-gray-200 ">
+            <li class="hover:text-white">
+              <a href="/projects">Projects</a>
+            </li>
+            <li class="hover:text-white">
+              <a href="<%=constants.author.github %>" target="_blank">GitHub</a>
+            </li>
+          </ul>
+
+        </nav>
+        
+        <!-- mobile nav -->
+        <div class="sm:hidden absolute top-16 right-0 z-10 w-2/3 h-full backdrop-blur-3xl bg-sky-900/5" id = "nav_panel">
+            <ul class="p-2">
+                <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm">
+                    <button class="w-full text-left" onclick="location.href='/projects'"><i class="bg-slate-100/10 w-12 fa-solid fa-list-check opacity-80 p-4"></i><span class="px-3">Projects</span</button>
+                </li>
+                <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm mt-1">
+                    <button class="w-full text-left" onclick="window.open('<%=constants.author.github%>', '_blank')"><i class="bg-slate-100/10 w-12 fa-brands fa-github opacity-80 p-4"></i><span class="px-3">Github</span></button>
+                </li>
+                <li class="hover:bg-slate-300/30 focus:ring-4 focus:outline-none focus:ring-gray-800 text-white backdrop-blur-xl bg-slate-100/5 shadow-sm mt-1">
+                    <button class="w-full text-left" onclick="location.href='/contact'"><i class="bg-slate-100/10 w-12 fa-regular fa-comments opacity-80 p-4"></i><span class="px-3">Contact</span</a>
+                </li>
+            </ul>
         </div>
+      </div>
+    </div>
