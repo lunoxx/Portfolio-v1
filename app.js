@@ -51,11 +51,11 @@ app.get("/", function(req, res) {
                 slug: entry.fields.slug,
                 description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                 content: HTMLContentRender.documentToHtmlString(entry.fields.content),
-                thumbnail_image: entry.fields.thumbnailImage.fields.file,
+                thumbnail_image: (`${entry.fields.thumbnailImage.fields.file.url}?fm=webp`),
                 tags: entry.metadata.tags
             }
             topics.push(item);
-            // res.send(item.slug);
+            // res.send(item.thumbnail_image);
         });
 
         res.render("index.ejs", {constants, topics, tagsConfig, title:'Mesesan Alin - Portfolio'});
@@ -85,7 +85,7 @@ app.get("/projects/:slug?", function(req, res) {
                         slug: entry.fields.slug,
                         description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                         content: HTMLContentRender.documentToHtmlString(entry.fields.content),
-                        thumbnail_image: entry.fields.thumbnailImage.fields.file,
+                        thumbnail_image: (`${entry.fields.thumbnailImage.fields.file.url}?fm=webp`),
                         tags: entry.metadata.tags,
                         createdAt: dateTime(new Date(entry.sys.createdAt), '%d %M:s %Y, %H:%i')
                     }
@@ -116,7 +116,7 @@ app.get("/projects/:slug?", function(req, res) {
                     slug: entry.fields.slug,
                     description: HTMLContentRender.documentToHtmlString(entry.fields.description),
                     content: HTMLContentRender.documentToHtmlString(entry.fields.content),
-                    thumbnail_image: entry.fields.thumbnailImage.fields.file,
+                    thumbnail_image: (`${entry.fields.thumbnailImage.fields.file.url}?fm=webp`),
                     tags: entry.metadata.tags
                 }
                 projects.push(item);
