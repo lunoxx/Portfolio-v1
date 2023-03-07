@@ -4,8 +4,11 @@ const bodyParser = require("body-parser");
 const tagsConfig = require(__dirname + "/TagsColors.js");
 require('dotenv').config() ;
 
+const compression = require('compression');
+
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(compression());
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + '/views');
