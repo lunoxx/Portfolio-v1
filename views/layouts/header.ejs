@@ -9,9 +9,9 @@
     
 
   <!-- Notifications display -->
-  <% if (flash_message.length) { %>
-      <%- include('../partials/notification') %>
-  <% } %>
+	<% if(typeof flash_message != "undefined" && flash_message.length) { %>
+		<%- include('../partials/notification') %>
+	<% } %>
     
 <body class="bg-slate-900 text-gray-100">
     <div class="mx-auto max-w-screen-lg px-3 py-6">

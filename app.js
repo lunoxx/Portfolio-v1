@@ -54,10 +54,7 @@ constants.YEAR = new Date().getFullYear();
 // ROUTES:
 
 app.get("/", function(req, res) {
-
-    console.log();
-
-
+    
     let topics = [];
 
     client.getEntries({
