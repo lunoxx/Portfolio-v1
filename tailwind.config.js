@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./views/*.{html,js,ejs}",
     "./views/layouts/*.{html,js,ejs}",
+    "./views/partials/*.{html,js,ejs}"
   ],
   
   safelist: [

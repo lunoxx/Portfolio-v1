@@ -1,5 +1,17 @@
 
 
+    <!-- jQuery -->
+    <script
+            src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            crossorigin="anonymous">
+    </script>
+    
+
+  <!-- Notifications display -->
+  <% if (flash_message.length) { %>
+      <%- include('../partials/notification') %>
+  <% } %>
     
 <body class="bg-slate-900 text-gray-100">
     <div class="mx-auto max-w-screen-lg px-3 py-6">

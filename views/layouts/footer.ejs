@@ -1,45 +1,63 @@
 
-        <!-- Newsletter -->
-        <div class="mx-auto max-w-screen-lg px-3 py-6">
-            <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div class="sm:w-7/12">
-                <div class="text-3xl font-bold">Subscribe to my <span class="bg-gradient-to-br from-sky-500 to-cyan-400 bg-clip-text text-transparent">Newsletters</span>
-                </div>
-                <p class="mt-3 text-gray-300">
-                  Stay updated with my latest projects! Subscribe to my newsletter to receive notifications every time I unveil a new project. <b>And the best part?</b> Most of them come with the source code included!
-                </p>
-              </div>
-              <div class="w-full sm:w-5/12">
-                <form class="flex rounded-full bg-slate-800 px-4 py-2 ring-0 focus-within:ring-2 focus-within:ring-cyan-600 hover:ring-2 hover:ring-cyan-600">
-                  <input class="w-full appearance-none bg-slate-800 focus:outline-none" placeholder="Type your Email">
-                  <button class="ml-2 shrink-0 rounded-full bg-gradient-to-br from-sky-500 to-cyan-400 px-3 py-1 text-sm font-medium hover:from-sky-700 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-600/50" type="submit">Subscribe</button>
-                </form>
-              </div>
+<!-- Newsletter -->
+<div class="mx-auto max-w-screen-lg px-3 py-6 select-none">
+    <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+        <div class="sm:w-7/12">
+            <div class="text-3xl font-bold">Subscribe to my <span
+                    class="bg-gradient-to-br from-sky-500 to-cyan-400
+                    bg-clip-text
+                    text-transparent">Newsletters</span>
             </div>
-          </div>
-  
-          <!-- Footer -->
-          <div class="mx-auto max-w-screen-lg px-3 py-6">
-            <div class="border-t border-gray-600 pt-5">
-              <div class="text-sm text-gray-200">© Copyright <%= constants.YEAR %>. Built with ♥ by
+            <p class="mt-3 text-gray-300">
+                Stay updated with my latest projects! Subscribe to my newsletter
+                to
+                receive notifications every time I unveil a new project. <b>And
+                    the best
+                    part?</b> Most of them come with the source code included!
+            </p>
+        </div>
+        <div class="w-full sm:w-5/12">
+            <form method="POST" action="/subscribe"
+                class="flex rounded-full bg-slate-800 px-4 py-2 ring-0
+                focus-within:ring-2 focus-within:ring-cyan-600 hover:ring-2 
+                hover:ring-cyan-600">
+
+                <input class="w-full appearance-none bg-slate-800 focus:outline-none focus:border-sky-500 focus:ring-0
+                py-0 px-0 border-0 "
+                    placeholder="Type your Email"
+                    id="emailAdress"
+                    type="email"
+                    name="emailAdress">
+
+                <button class="ml-2 shrink-0 rounded-full bg-gradient-to-br
+                    from-sky-500
+                    to-cyan-400 px-3 py-1 text-sm font-medium hover:from-sky-700
+                    hover:to-cyan-600 focus:outline-none focus:ring-2
+                    focus:ring-cyan-600/50" type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <div class="border-t border-gray-600 pt-5">
+        <div class="text-sm text-gray-200">© Copyright <%= constants.YEAR %>.
+                Built
+                with ♥ by
                 <!-- -->
-                <a class="text-cyan-400 hover:underline" href="<%=constants.author.github%>" target="_blank" rel="noopener noreferrer"><%=constants.author.full_name %></a>.
-              </div>
+                <a class="text-cyan-400 hover:underline" href="<%=constants.author.github%>"
+                    target="_blank" rel="noopener noreferrer"><%=constants.author.full_name%>
+                </a>.
             </div>
-          </div>
-        </body>
-  
-        <!-- jQuery -->
-        <script
-          defer
-          src="https://code.jquery.com/jquery-3.6.3.min.js"
-          integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-          crossorigin="anonymous">
-        </script>
+        </div>
+    </div>
+</body>
 
-        <script defer src="/js/navbar.js"></script>
-  
 
-        <!-- FONT AWESOME -->
-        <script defer src="https://kit.fontawesome.com/d12da8e864.js" crossorigin="anonymous" ></script>
+    <script defer src="/js/navbar.js"></script>
 
+
+    <!-- FONT AWESOME -->
+    <script defer src="https://kit.fontawesome.com/d12da8e864.js"
+        crossorigin="anonymous"></script>

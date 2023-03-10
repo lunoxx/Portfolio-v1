@@ -2,23 +2,32 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const tagsConfig = require(__dirname + "/TagsColors.js");
+
+
+const session = require('express-session');
+var flash = require('connect-flash');
 require('dotenv').config() ;
 
 const compression = require('compression');
 
 const app = express();
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(compression());
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + '/views');
-// app.use(express.static("public"));
 app.use(express.static(__dirname + '/public'));
 
+app.use(session({
+    secret: 'secret key',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(flash());
 
 // dateTime:
 const dateTime = require("datetime-js");
-
 
 // Contentful
 const contentful = require("contentful");
@@ -29,11 +38,25 @@ var client = contentful.createClient({
     space: process.env.CONTENTFUL_SPACE_ID
 });
 
+// Mailchimp
+const mailchimp = require('@mailchimp/mailchimp_marketing');
+
+mailchimp.setConfig({
+    apiKey: process.env.MAILCHIMP_API,
+    server: process.env.MAILCHIMP_SERVER,
+  });
+
 // Constants
 const constants = require(__dirname + "/constants");
 constants.YEAR = new Date().getFullYear();
 
+
+// ROUTES:
+
 app.get("/", function(req, res) {
+
+    console.log();
+
 
     let topics = [];
 
@@ -58,7 +81,7 @@ app.get("/", function(req, res) {
             // res.send(item.thumbnail_image);
         });
 
-        res.render("index.ejs", {constants, topics, tagsConfig, title:'Mesesan Alin - Portfolio'});
+        res.render("index.ejs", {constants, topics, tagsConfig, title:'Mesesan Alin - Portfolio', flash_message: req.flash('flash_message')});
     });
 });
 
@@ -128,6 +151,63 @@ app.get("/projects/:slug?", function(req, res) {
         
     }
 });
+
+// Subscribe to newsletter
+app.post("/subscribe", function(req, res) {
+    
+    var email = req.body.emailAdress;
+
+    if(email.length < 3) {
+        
+        var flash_arr = {
+            "type": 'error',
+            "title": 'Something was wrong',
+            "message": 'Your email address does not appear to be valid.',
+            "time_to_show": 6000,
+        }
+        req.flash('flash_message', flash_arr);
+        res.redirect('/');
+        return;
+    }
+
+    const addListMember = async () => {
+
+        try {
+            const response = await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
+                email_address: email,
+                status: "subscribed"
+            });
+            
+            var flash_arr = {
+                "type": 'success',
+                "title": 'Success!',
+                "message": 'Your Email was succesfully registered.<br>Thank you!',
+                "time_to_show": 6000,
+            }
+
+            req.flash('flash_message', flash_arr);
+            res.redirect('/');
+        }
+        catch (err) {
+            // if(err.status == 400) {
+            //     console.log(JSON.parse(err.response.text));
+            //     res.status(400).send(err);
+            // }
+            var flash_arr = {
+                "type": 'error',
+                "title": 'Something was wrong',
+                "message": 'Something didn`t work. Your address has not been registered!',
+                "time_to_show": 6000,
+            }
+            req.flash('flash_message', flash_arr);
+            res.redirect('/');
+        }
+    };
+
+    addListMember();
+});
+
+
 
 // Contact page
 app.get("/contact", function(req, res) {
