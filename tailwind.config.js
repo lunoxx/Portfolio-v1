@@ -14,6 +14,7 @@ module.exports = {
     'bg-blue-600', 'text-blue-100',
     'bg-orange-500', 'text-orange-100',
     'bg-teal-700', 'text-teal-100',
+    'bg-red-500 ', 'text-red-80',
   ],
 
   theme: {

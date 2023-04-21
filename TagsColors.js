@@ -29,5 +29,9 @@ module.exports = Object.freeze({
     react: {
         colors: "bg-sky-500 text-sky-50",
         tagName: "React"
+    },
+    laravel: {
+        colors: "bg-red-500 text-red-50",
+        tagName: "React"
     }
 });
