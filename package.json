@@ -6,7 +6,8 @@
   "scripts": {
     "tailwind:css": "postcss public/css/source.css -o public/css/style.css --watch",
     "dev": "concurrently \"nodemon app.js\" \"postcss public/css/source.css -o public/css/style.css --watch\"",
-    "build": "ncc build app.js -o dist"
+    "build": "ncc build app.js -o dist",
+    "start": "node app.js"
   },
   "author": "Mesesan Alin",
   "license": "ISC",
